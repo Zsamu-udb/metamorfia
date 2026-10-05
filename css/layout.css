@@ -1,0 +1,244 @@
+/* ==========================================================================
+   METAMORFIA — Layout
+   Contenedor, header, navegación, secciones y footer.
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + 2 * var(--container-pad));
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* --- Header ------------------------------------------------------------ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.brand__mark {
+  width: 38px;
+  height: 38px;
+  flex: none;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+/* --- Navegación principal --------------------------------------------- */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding-block: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+}
+
+.site-nav__link:hover,
+.site-nav__link[aria-current="page"] {
+  color: var(--color-text);
+  border-bottom-color: var(--oliva-400);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* Menú móvil: solo se colapsa si JS está activo (mejora progresiva) */
+@media (max-width: 959px) {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    padding: 0 var(--space-4);
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    cursor: pointer;
+  }
+
+  .nav-toggle__bars {
+    display: block;
+    width: 16px;
+    height: 12px;
+    background:
+      linear-gradient(currentColor, currentColor) 0 0 / 100% 1.5px no-repeat,
+      linear-gradient(currentColor, currentColor) 0 50% / 100% 1.5px no-repeat,
+      linear-gradient(currentColor, currentColor) 0 100% / 100% 1.5px no-repeat;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--container-pad) var(--space-6);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-nav__link {
+    display: block;
+    padding-block: var(--space-3);
+    font-size: var(--fs-base);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .js .site-nav {
+    display: none;
+  }
+
+  .js .site-nav.is-open {
+    display: flex;
+  }
+}
+
+/* --- Secciones --------------------------------------------------------- */
+
+.section {
+  padding-block: var(--space-9);
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.section__title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-6);
+}
+
+/* --- Footer ------------------------------------------------------------ */
+
+.site-footer {
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  padding-block: var(--space-8) var(--space-6);
+}
+
+.site-footer a {
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--lino-200);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: var(--space-7);
+  padding-bottom: var(--space-7);
+  border-bottom: 1px solid color-mix(in srgb, var(--lino-200) 22%, transparent);
+}
+
+.site-footer__brand .brand {
+  color: var(--lino-200);
+  margin-bottom: var(--space-4);
+}
+
+.site-footer__brand .brand__name {
+  color: var(--lino-50);
+}
+
+.site-footer__tagline {
+  max-width: 32ch;
+  font-size: var(--fs-sm);
+  color: var(--oliva-200);
+}
+
+.site-footer__heading {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--lino-50);
+}
+
+.site-footer__list {
+  display: grid;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+  padding-top: var(--space-5);
+  font-size: var(--fs-xs);
+  color: var(--oliva-200);
+}
+
+@media (max-width: 799px) {
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}

@@ -1,0 +1,107 @@
+/* ==========================================================================
+   METAMORFIA — Tokens de diseño
+   Única fuente de verdad para color, tipografía, espaciado y forma.
+   Regla: ningún otro archivo CSS define valores "sueltos" de estos ejes;
+   siempre se consumen con var(--token).
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------
+     1. Paleta base — beige + verde oliva (definida por la clienta).
+        El lila se descartó: se percibe demasiado femenino.
+     ------------------------------------------------------------------ */
+  --lino-50:  #FBF8F0;
+  --lino-100: #F4EEE2;   /* fondo principal */
+  --lino-200: #E9DFCB;
+  --lino-300: #D8CAAB;
+
+  --oliva-200: #CDD1A9;
+  --oliva-300: #B0B788;
+  --oliva-400: #929B63;
+  --oliva-500: #767F4B;
+  --oliva-700: #4E5730;  /* color de marca / botón primario */
+  --oliva-900: #2C311C;  /* texto */
+
+  /* --- Acento secundario: morado ciruela — PRUEBA en revisión con la clienta
+         (reunión 25 sept. 2026: mantener oliva como principal, combinar con
+         morado, descartando el amarillo). No reemplaza el oliva; se usa en
+         elementos puntuales: Proceso/FAQ, enlaces secundarios, acentos. --- */
+  --ciruela-200: #E6DCE4;
+  --ciruela-300: #C9AEC3;
+  --ciruela-400: #A8819F;
+  --ciruela-500: #87607E;
+  --ciruela-700: #5E4158;
+  --ciruela-900: #3A2736;
+
+  /* ------------------------------------------------------------------
+     2. Colores semánticos (lo que se usa en componentes)
+     ------------------------------------------------------------------ */
+  --color-bg:            var(--lino-100);
+  --color-bg-alt:        var(--lino-50);
+  --color-surface:       var(--lino-200);
+  --color-text:          var(--oliva-900);
+  --color-text-muted:    #5A5E42;
+  --color-primary:       var(--oliva-700);
+  --color-primary-hover: var(--oliva-900);
+  --color-on-primary:    var(--lino-50);
+  --color-secondary:     var(--ciruela-700);
+  --color-secondary-bg:  var(--ciruela-200);
+  --color-border:        var(--lino-300);
+  --color-focus:         var(--oliva-700);
+
+  --color-footer-bg:     var(--oliva-900);
+  --color-footer-text:   var(--lino-200);
+
+  /* ------------------------------------------------------------------
+     3. Tipografía
+        Display: Newsreader (serif editorial, cálida, sin verse clínica)
+        Cuerpo:  Figtree (sans geométrica amable, muy legible)
+     ------------------------------------------------------------------ */
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body:    "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+
+  /* Escala tipográfica (razón ≈ 1.25) */
+  --fs-xs:   0.8125rem;                             /* 13 */
+  --fs-sm:   0.9375rem;                             /* 15 */
+  --fs-base: 1.0625rem;                             /* 17 */
+  --fs-md:   1.25rem;                               /* 20 */
+  --fs-lg:   clamp(1.5rem, 2.2vw, 1.875rem);        /* 24–30 */
+  --fs-xl:   clamp(2rem, 3.6vw, 2.75rem);           /* 32–44 (títulos de sección) */
+  --fs-hero: clamp(2.6rem, 5.6vw, 4.6rem);          /* 42–74 (titular del hero) */
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.25;
+  --lh-body:  1.65;
+
+  /* ------------------------------------------------------------------
+     4. Espaciado (base 4 px)
+     ------------------------------------------------------------------ */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6rem;
+
+  /* ------------------------------------------------------------------
+     5. Forma, layout y movimiento
+     ------------------------------------------------------------------ */
+  --radius-sm:   10px;
+  --radius-md:   18px;
+  --radius-pill: 999px;
+
+  --container-max: 1160px;
+  --container-pad: clamp(1.25rem, 4vw, 2.5rem);
+  --header-h: 76px;
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 180ms;
+}

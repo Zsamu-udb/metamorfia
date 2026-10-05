@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="METAMORPHIA">
+  <title>METAMORPHIA (isotipo provisional)</title>
+  <g fill="#4E5730">
+    <g id="w">
+      <path d="M33 30C38 15 53 9 60 16C63 24 56 32 47 35C41 37 36 35 33 33Z"/>
+      <path d="M33 35C41 36 52 39 52 47C52 55 43 58 39 52C35 47 34 41 33 37Z" fill-opacity=".7"/>
+    </g>
+    <use href="#w" transform="translate(64 0) scale(-1 1)"/>
+    <rect x="30.8" y="21" width="2.4" height="31" rx="1.2"/>
+  </g>
+  <g fill="none" stroke="#4E5730" stroke-width="1.6" stroke-linecap="round">
+    <path d="M32 22C31 16 28 13 25 12"/>
+    <path d="M32 22C33 16 36 13 39 12"/>
+  </g>
+</svg>
